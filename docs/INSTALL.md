@@ -1,7 +1,7 @@
 # Installing
 
 ```sh
-git clone https://github.com/zaroutt/dotfiles
+git clone https://github.com/qasim-sudo/niri-dotfiles
 cd dotfiles
 ./install.sh --dry-run     # read this first
 ./install.sh

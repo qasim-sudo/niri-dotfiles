@@ -3,7 +3,7 @@
 A reproducible **Arch Linux → Niri → Noctalia** desktop environment.
 
 ```sh
-git clone https://github.com/zaroutt/dotfiles
+git clone https://github.com/qasim-sudo/niri-dotfiles
 cd dotfiles
 ./install.sh
 ```
@@ -59,7 +59,7 @@ missing — except `git`, which you need to clone this repository.
 ## Install
 
 ```sh
-git clone https://github.com/zaroutt/dotfiles
+git clone https://github.com/qasim-sudo/niri-dotfiles
 cd dotfiles
 ./install.sh --dry-run     # see every action, change nothing
 ./install.sh               # do it
