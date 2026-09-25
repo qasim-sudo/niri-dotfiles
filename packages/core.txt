@@ -1,0 +1,61 @@
+# packages/core.txt — TIER 1: CORE DESKTOP
+#
+# Everything required for the desktop to function. Every entry has exactly one
+# concrete reason: either it IS a component of the desktop, or it is the literal
+# provider of a string that appears in a file this repository deploys.
+#
+# Format: one package name per line. `#` starts a comment. Blank lines ignored.
+# Install with `pacman -S --needed`, so re-running is a no-op.
+
+# --- Wayland session, compositor, portal, X11 bridge -----------------------
+niri
+xdg-desktop-portal
+xdg-desktop-portal-gnome
+xwayland-satellite
+
+# --- The shell --------------------------------------------------------------
+# These two ARE the desktop. Noctalia provides the bar, the launcher, the
+# control centre, the notifications, the wallpaper, the clipboard, the power
+# menu and the lock screen; quickshell is the QML runtime it draws itself with.
+# Without them niri starts to an empty black screen with no way to do anything,
+# and every keybinding that opens a panel goes nowhere.
+#
+# quickshell is listed explicitly, not left to noctalia's dependency on it,
+# because the installer has to DISABLE quickshell.service (see
+# MUST_BE_DISABLED in lib/packages.sh): the shell is started by niri's
+# `spawn-at-startup "noctalia"`, not by the service, and having both start it
+# gives you two bars.
+noctalia
+quickshell
+
+# --- Audio ------------------------------------------------------------------
+pipewire
+wireplumber
+pipewire-pulse
+playerctl
+
+# --- Network, Bluetooth, power ---------------------------------------------
+networkmanager
+wpa_supplicant
+bluez
+power-profiles-daemon
+
+# --- Login manager ----------------------------------------------------------
+sddm
+qtvirtualkeyboard
+gnome-keyring
+
+# --- Kernel, build base, privileges ----------------------------------------
+linux
+linux-firmware
+base-devel
+git
+sudo
+
+# --- Font and icon theming (each name is a literal string in a deployed file)
+fontconfig
+adwaita-fonts
+ttf-jetbrains-mono-nerd
+noto-fonts
+noto-fonts-emoji
+papirus-icon-theme

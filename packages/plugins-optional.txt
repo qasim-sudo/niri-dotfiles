@@ -1,0 +1,27 @@
+# Optional Noctalia plugins. Enabled with:
+#     ./install.sh --with-noctalia-plugins
+# Their package dependencies live in packages/optional.txt and are NOT part of
+# the default installation.
+
+# Plugin ID                     Package dependency     Kept out of core because
+oldirtty/color_picker           hyprpicker             an appearance utility, not a live widget slot
+jinliu/imagemagick-clock        imagemagick            an alternative clock renderer
+gustav0ar/drive-health          smartmontools          a storage-health widget
+thepunkoff/pomodoro             ffmpeg (already core)  a timer; adds no new package
+noctalia/mpvpaper               mpvpaper (AUR) + mpv   dynamic wallpaper; unused on the source machine
+joshuaslate/shelly              shelly (AUR)           update notifier; adds an AUR dependency
+
+# ---------------------------------------------------------------------------
+# NEVER SHIPPED
+#
+# tadomika_ari/config-swap
+#   A personal configuration-swap workflow bound to ~/Config-Swap. It is the
+#   source of the `widget_2` bar entry. Removed entirely; not replaced.
+#
+# nzlov/daily-wallpaper
+#   Present on the source machine but disabled. Not shipped.
+#
+# `widget` and `widget_2` were removed from bar group g4 in the shipped config
+# because they were instances of color_picker (optional) and config-swap
+# (personal). With --with-noctalia-plugins, lib/noctalia.sh re-adds `widget`
+# to g4; `widget_2` is never restored.

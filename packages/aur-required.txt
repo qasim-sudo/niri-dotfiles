@@ -1,0 +1,17 @@
+# packages/aur-required.txt — TIER 3: AUR, REQUIRED
+#
+# No official repository provides these. Each one supplies a literal string that
+# appears in a file this repository deploys. Installed through an AUR helper
+# (yay, paru, pikaur — bootstrapped by the installer if none is present).
+
+adw-gtk-theme-git        # provides /usr/share/themes/adw-gtk3-dark
+                         #   = gtk-theme-name in config/gtk-3.0/settings.ini
+                         #   = gtk-theme-name in config/gtk-4.0/settings.ini
+bibata-cursor-theme-bin  # provides the Bibata-Modern-Classic cursor
+                         #   = XCURSOR_THEME in config/niri/cfg/environment.kdl
+                         #   = CursorTheme in etc/sddm.conf
+sddm-silent-theme        # provides /usr/share/sddm/themes/silent
+                         #   = Current=silent in etc/sddm.conf
+                         #   (ships the KEN login theme; bundles its own fonts)
+papirus-folders          # the Papirus folder overlay that Noctalia's
+                         #   `papirus-icons` template writes keep-file for

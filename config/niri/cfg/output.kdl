@@ -1,0 +1,20 @@
+// PLACEHOLDER — this file is overwritten by the installer.
+//
+// It exists, and it is committed, for one reason: config.kdl does
+//
+//     include "cfg/output.kdl"
+//
+// unconditionally, because niri has no "include if it exists". A missing file
+// there is a hard config error, so a fresh clone would have a broken niri
+// config until the installer had run. This placeholder makes the config valid
+// immediately, and contains no output block at all — so niri auto-detects your
+// displays using its own EDID logic.
+//
+// ./install.sh   writes the real one from `niri msg outputs`
+// ./regenerate.sh  rewrites it after a monitor, resolution or scale change
+//
+// Monitor connector names, modes, scale factors and positions are properties of
+// the hardware plugged in right now. Committing them would hard-code one
+// machine's monitor setup, so they are generated per host and never committed.
+// This comment-only placeholder is what ships instead.
+

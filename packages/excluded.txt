@@ -1,0 +1,110 @@
+# packages/excluded.txt — TIER 4: EXCLUDED PERSONAL SOFTWARE
+#
+# NOTHING in this file is ever installed, configured, copied, symlinked or made
+# a dependency by this repository. It is documentation only.
+#
+# This repository reproduces a DESKTOP ENVIRONMENT, not a personal workstation.
+# If you want any of these, install them yourself and re-add your own bindings.
+
+# --- Browsers ---------------------------------------------------------------
+brave-bin
+brave
+google-chrome
+chromium
+
+# --- Editors and IDEs -------------------------------------------------------
+visual-studio-code-bin
+vscodium-bin
+vscodium-bin-marketplace
+code
+vscodium
+zed
+neovim
+nvim
+emacs
+kate
+
+# --- Music and audio players ------------------------------------------------
+spotify
+spicetify-cli
+spicetify-marketplace-bin
+spotify-player
+ncmpcpp
+
+# --- Productivity -----------------------------------------------------------
+todoist-appimage
+todoist
+obsidian
+
+# --- Mobile and cross-platform development ----------------------------------
+android-studio
+flutter-bin
+flutter
+
+# --- Gaming -----------------------------------------------------------------
+steam
+lutris
+wine
+wine-staging
+proton-qt
+gamescope
+mangohud
+vkbasalt-cli
+heroic
+bottles
+
+# --- University coursework --------------------------------------------------
+packettracer
+wireshark-qt
+wireshark-cli
+
+# --- Security and offensive tooling -----------------------------------------
+nmap
+masscan
+lynis
+john
+aircrack-ng
+metasploit
+hydra
+burpsuite
+zaproxy
+
+# --- AI / agent tooling -----------------------------------------------------
+opencode
+aider
+continue
+
+# --- Virtualisation and containers -----------------------------------------
+virtualbox
+qemu-desktop
+docker
+docker-compose
+podman
+libvirt
+qemu-full
+
+# --- Configuration and state that must NEVER be shipped ---------------------
+#   Personal application configuration, credentials, tokens, histories.
+#   See docs/SCOPE.md for the complete, itemised exclusion list.
+#
+#   ~/.config/{spicetify,opencode,nvim,zed,Code,VSCodium,BraveSoftware,
+#              Google,spotify,spotify-player,mc,obsidian}/**
+#   ~/.local/state/opencode/**        ~/.local/share/opencode/**
+#   ~/.var/app/**                     ~/.steam/**  ~/.wine/**
+#   ~/.local/share/keyrings/**        ~/.pulse-cookie
+#   ~/.config/fish/fish_variables     (contains absolute paths + a browser path)
+#   ~/.local/state/noctalia/{notification_history.json,clipboard/,state.toml,
+#                             usage_counts.json,recently_used.json}
+#   ~/.local/share/noctalia/*-theme/**
+#   ~/Downloads/**  ~/Documents/**  ~/.ssh/  ~/.gitconfig
+#
+# --- Unused desktop leftovers found during the source audit ----------------
+# Documented, not shipped. These are installed-but-unused on the source machine
+# and would only add coupling. They must stay DISABLED if already present.
+#   dms-shell  quickshell  dunst  rofi  wofi  wlogout
+#   illogical-impulse-* (15 packages)  hypridle
+#   matugen  breeze-plus  qogir-icon-theme  qml-niri-git
+#   alacritty  foot  ghostty  yazi  btop
+#   micro  nano  vim  lldb  less  bind  traceroute  inxi  direnv
+#   python-{numpy,opencv,pip}  frameworkintegration
+#   /usr/share/wayland-sessions/nothing.desktop  (unowned Hyprland leftover)

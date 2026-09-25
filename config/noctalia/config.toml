@@ -1,0 +1,515 @@
+# Noctalia base configuration.
+#
+# Installed to:  ~/.config/noctalia/config.toml
+# Deployed as:   copy  (not a symlink — Noctalia may rewrite this file)
+#
+# This is the complete, self-contained description of the desktop shell. It
+# contains NO monitor name, NO resolution, NO pixel coordinate, NO username and
+# NO absolute path outside of @TOKEN@ placeholders. Everything that describes
+# the hardware attached right now lives in the generated runtime overlay at
+# ~/.local/state/noctalia/settings.toml (see lib/noctalia.sh).
+#
+# Merge semantics: Noctalia reads this base file, then merges the runtime
+# overlay on top of it. The overlay wins. config_version must match.
+
+config_version = 14
+
+[accessibility]
+ui_scale = 0.90000000596046448
+
+[backdrop]
+tint_intensity = 0.34999999217689037
+
+# =============================================================================
+# Bar
+# =============================================================================
+# One bar, at the top. The source configuration also carried a disabled `bar`
+# and a `shortcuts` bar that existed only to host seven dead buttons; both have
+# been removed. See docs/NOCTALIA.md for the full list of removals.
+[bar]
+order = [ "waybar" ]
+
+    [bar.waybar]
+    background_opacity = 0.47999998927116394
+    capsule_thickness = 0.99999998137354851
+    center = [ "group:g2", "custom_button_12", "ram" ]
+    concave_edge_corners = false
+    end = [ "group:g1", "group:g9", "group:g5", "bluetooth", "spacer_11", "network", "spacer_12", "session", "spacer_13" ]
+    font_family = "Open Sans"
+    font_weight = 800
+    hover_highlight = false
+    margin_edge = 10
+    margin_ends = 240
+    padding = 0
+    panel_overlap = 0
+    position = "top"
+    radius = 18
+    start = [ "group:g8", "group:g6", "custom_button_11", "group:g7", "spacer_6", "group:g3", "group:g4" ]
+
+        [[bar.waybar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = false
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "cpu", "ram", "temp" ]
+        opacity = 0.0
+        padding = 6.0
+        radius = 13.0
+        widget_spacing = 11
+
+        [[bar.waybar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "custom_button_8", "text_4", "clock", "spacer_10", "custom_button_9", "date" ]
+        opacity = 0.0
+        padding = 14.0
+        radius = 15.0
+
+        # The launcher/clipboard capsule. `widget` (color_picker) was in the
+        # source member list; it belongs to an optional plugin and has been
+        # removed. lib/noctalia.sh re-adds it under --with-noctalia-plugins.
+        [[bar.waybar.capsule_group]]
+        accordion = true
+        accordion_direction = "end"
+        border = ""
+        enabled = true
+        fill = "surface_variant"
+        id = "g4"
+        members = [ "control-center", "custom_button_5", "recorder", "notes", "wallhaven" ]
+        opacity = 0.0
+        padding = 4.0
+        radius = 16.0
+        widget_spacing = 8
+
+        [[bar.waybar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = false
+        fill = "surface_variant"
+        id = "g5"
+        members = [ "text_4", "media", "text_5" ]
+        opacity = 0.0
+        padding = 6.0
+        radius = 12.0
+
+        [[bar.waybar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = true
+        fill = "surface_variant"
+        id = "g6"
+        members = [ "text_7", "volume" ]
+        opacity = 0.0
+        padding = 11.0
+
+        [[bar.waybar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = false
+        fill = "surface_variant"
+        id = "g7"
+        members = [ "spacer_5", "text_6", "ram", "text_10", "text_3", "cpu", "text_10", "text_9", "sysmon" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.waybar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = false
+        fill = "surface_variant"
+        id = "g3"
+        members = [ "weather" ]
+        opacity = 0.0
+        padding = 6.0
+
+        [[bar.waybar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = true
+        fill = "surface_variant"
+        id = "g8"
+        members = [ "custom_button_10" ]
+        opacity = 0.0
+        padding = 6.0
+
+        [[bar.waybar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = true
+        fill = "surface_variant"
+        id = "g9"
+        members = [ "text_8", "battery" ]
+        opacity = 0.0
+        padding = 6.0
+
+# =============================================================================
+# Control centre  (Mod+X opens the session panel; this is the main quick panel)
+# =============================================================================
+[control_center]
+show_shortcut_labels = false
+sidebar = "none"
+sidebar_section = "none"
+width = 1000
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "dark_mode"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+# =============================================================================
+# Dock
+# =============================================================================
+[dock]
+auto_hide = true
+icon_size = 30
+magnification_scale = 1.2500000037252903
+main_axis_padding = 14
+margin_edge = 0
+position = "bottom"
+
+# =============================================================================
+# Location  (used by the weather widget)
+# =============================================================================
+[location]
+auto_locate = true
+
+# =============================================================================
+# Night light
+# =============================================================================
+# Noctalia's own blue-light filter. No external daemon (such as gammastep) is
+# involved, which is why gammastep is not a dependency of this desktop.
+[nightlight]
+enabled = true
+
+# =============================================================================
+# Plugins
+# =============================================================================
+# Written by the installer from packages/plugins-core.txt. Do not hand-edit
+# and expect it to survive a re-run.
+[plugins]
+enabled = [
+    "noctalia/screen_recorder",
+    "noctalia/notes",
+    "noctalia/wallhaven",
+    "noctalia/timer",
+    "noctalia/translator",
+    "nightwatch75/todo"
+]
+
+# =============================================================================
+# Shell
+# =============================================================================
+[shell]
+app_icon_color = "primary"
+corner_radius_scale = 2.0
+# Provided by adwaita-fonts, which is why that package is in packages/core.txt.
+font_family = "Adwaita Sans"
+panel_anchor_bar = "waybar"
+
+    [shell.animation]
+    speed = 0.45000000670552254
+
+    [shell.panel]
+    clipboard_position = "auto"
+    control_center_placement = "floating"
+    floating_layer = "top"
+    floating_offset = 3
+    launcher_placement = "floating"
+    launcher_position = "center"
+    polkit_position = "auto"
+    transparency_mode = "glass"
+    wallpaper_placement = "floating"
+    wallpaper_position = "auto"
+
+    [shell.shadow]
+    alpha = 0.99999997764825821
+    direction = "down_right"
+
+    [shell.screenshot]
+    save_to_file = true
+    directory = "@HOME@/Pictures/Screenshots"
+    copy_to_clipboard = true
+
+# =============================================================================
+# System monitor thresholds
+# =============================================================================
+[system.monitor]
+cpu_temp_critical_threshold = 91
+ram_pct_activity_threshold = 78
+ram_pct_critical_threshold = 100
+
+# =============================================================================
+# Theme
+# =============================================================================
+# The palette is derived from the wallpaper at runtime (`source = "wallpaper"`),
+# so the accent colours follow whichever wallpaper is active.
+[theme]
+builtin = "Tokyo-Night"
+community_palette = "Vesper"
+mode = "dark"
+pure_black_dark = true
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
+
+    # Only the toolkits this desktop actually ships. Each id writes a theme
+    # file for that application on every palette change.
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "kitty", "qt" ]
+    community_ids = [ "papirus-icons", "fuzzel" ]
+
+# =============================================================================
+# Wallpaper
+# =============================================================================
+# Per-monitor assignments live in the generated runtime overlay, because they
+# depend on which displays are connected.
+[wallpaper]
+directory = "@WALLPAPER_DIR@"
+
+    [wallpaper.automation]
+    enabled = false
+
+    [wallpaper.default]
+    path = "@WALLPAPER_DIR@/wallhaven-w5xokr_1920x1080.png"
+
+    [wallpaper.last]
+    path = "@WALLPAPER_DIR@/wallhaven-w5xokr_1920x1080.png"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "@WALLPAPER_DIR@/wallhaven-w5xokr_1920x1080.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+# =============================================================================
+# Widgets
+# =============================================================================
+# Only widgets referenced by a bar group above are defined. Orphaned widget
+# definitions were removed, which is why `noctalia config validate` reports
+# zero warnings.
+
+[widget.battery]
+icon_color = "primary"
+
+[widget.bluetooth]
+icon_color = "primary"
+scale = 1.1500000000000001
+
+[widget.clipboard]
+scale = 1.0
+
+[widget.clock]
+capsule_opacity = 0.0
+format = "{:%H:%M}"
+scale = 1.1500000000000001
+
+[widget.control-center]
+capsule = true
+capsule_opacity = 0.0
+capsule_padding = 3
+capsule_radius = 5
+glyph = "grid-dots"
+scale = 1.1000000000000001
+
+[widget.cpu]
+glyph = "cpu"
+show_glyph = false
+visualization = "none"
+
+# A disabled placeholder, kept so the g4 member list is preserved verbatim.
+[widget.custom_button_5]
+color = "surface"
+enabled = false
+glyph = "square-rotated-filled"
+scale = 1.0
+type = "custom_button"
+
+[widget.custom_button_8]
+capsule = true
+color = "primary"
+glyph = "clock-filled"
+icon_color = "primary"
+interactive = false
+type = "custom_button"
+
+[widget.custom_button_9]
+color = "primary"
+glyph = "calendar-week"
+icon_color = "primary"
+interactive = false
+type = "custom_button"
+
+[widget.custom_button_10]
+label = "wallpaper"
+type = "custom_button"
+
+    [widget.custom_button_10.actions]
+    left = "panel-toggle wallpaper"
+
+[widget.custom_button_11]
+enabled = false
+label = "clipboard"
+type = "custom_button"
+
+    [widget.custom_button_11.actions]
+    left = "panel-toggle clipboard"
+
+[widget.custom_button_12]
+color = "primary"
+glyph = "brand-speedtest"
+icon_color = "primary"
+type = "custom_button"
+
+[widget.date]
+format = "{:%B %d, %Y}"
+
+[widget.media]
+capsule_border = "outline"
+capsule_opacity = 1.0
+capsule_radius = 7
+hide_when_no_media = false
+max_length = 295
+scale = 0.95000000000000007
+
+# --- plugin-provided widgets (noctalia/notes) -------------------------------
+[widget.notes]
+type = "noctalia/notes:notes"
+
+# The nightwatch75/todo plugin is enabled but places no widget on the bar, so
+# no [widget.todo_*] table is defined. Add one to put a task list on the bar:
+#   [widget.todo_5]
+#   type = "nightwatch75/todo:todo"
+
+[widget.ram]
+glyph = "brand-speedtest"
+icon_color = "#FFFFFF"
+show_glyph = false
+visualization = "none"
+
+# --- plugin-provided widget (noctalia/screen_recorder) ---------------------
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.session]
+capsule = true
+capsule_border = "primary"
+capsule_opacity = 0.0
+capsule_radius = "auto"
+scale = 0.95000000000000007
+
+[widget.spacer_5]
+length = 17
+type = "spacer"
+
+[widget.spacer_6]
+type = "spacer"
+
+[widget.spacer_10]
+type = "spacer"
+
+[widget.spacer_11]
+scale = 0.5
+type = "spacer"
+
+[widget.spacer_12]
+scale = 0.5
+type = "spacer"
+
+[widget.spacer_13]
+type = "spacer"
+
+[widget.sysmon]
+show_glyph = false
+stat = "gpu_usage"
+visualization = "none"
+
+[widget.temp]
+highlight_color = "#FFFFFF"
+icon_color = "#FFFFFF"
+visualization = "none"
+
+[widget.text_3]
+text = "cpu"
+type = "text"
+
+[widget.text_4]
+capsule = true
+capsule_opacity = 0.0
+capsule_padding = 0
+color = "primary"
+enabled = false
+interactive = false
+scale = 1.3
+text = "["
+type = "text"
+
+[widget.text_5]
+enabled = false
+scale = 1.3500000000000001
+text = "}"
+type = "text"
+
+[widget.text_6]
+text = "ram"
+type = "text"
+
+[widget.text_7]
+text = "vol"
+type = "text"
+
+[widget.text_8]
+color = "surface_variant"
+enabled = false
+icon_color = "error"
+scale = 1.25
+type = "text"
+
+[widget.text_9]
+text = "gpu"
+type = "text"
+
+[widget.text_10]
+text = "/"
+type = "text"
+
+[widget.volume]
+capsule = true
+capsule_padding = 0
+icon_color = "primary"
+scale = 1.05
+
+# --- plugin-provided widget (noctalia/wallhaven) ---------------------------
+[widget.wallhaven]
+type = "noctalia/wallhaven:wallhaven"
+
+[widget.wallpaper]
+scale = 1.0
+
+[widget.weather]
+capsule_radius = 6
+icon_color = "primary"
+max_length = 217

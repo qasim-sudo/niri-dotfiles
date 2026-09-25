@@ -1,0 +1,46 @@
+# packages/utilities.txt — TIER 2: DEFAULT DESKTOP UTILITIES
+#
+# Software the desktop *invokes*. Not strictly required to boot, but every item
+# here is the target of at least one shipped keybinding, or a component of the
+# file-manager experience, or a shell feature the login shell calls directly.
+# All of it is installed by default.
+
+# --- Login shell and terminal (Mod+T, Mod+Return) ---------------------------
+fish
+kitty
+
+# --- Shell prompt and login banner -----------------------------------------
+starship
+fastfetch
+
+# --- Application launcher (Mod+D) -------------------------------------------
+fuzzel
+
+# --- File manager (Mod+E) and the default file-manager experience ----------
+thunar
+thunar-gvfs
+thunar-archive-plugin
+thunar-voluntary
+thunar-media-mimeinfo
+thunar-ffmpeg-thumbnailer
+gvfs
+gvfs-dudev
+gvfs-mtp
+gvfs-smb
+gvfs-gphoto2
+gvfs-fuse
+
+# --- Screen lock (Super+Alt+L) ---------------------------------------------
+swaylock
+
+# --- Screen brightness (XF86MonBrightnessUp / Down) -----------------------
+brightnessctl
+
+# --- Screen recording: the Noctalia `recorder` bar widget is part of the
+#     shipped bar, and `noctalia/screen_recorder` is a CORE plugin. ffmpeg is
+#     also the ScreenCast portal encoder backend.
+ffmpeg
+
+# --- XDG helpers used by lib/xdg.sh to register Thunar as the file manager
+xdg-utils
+xdg-user-dirs

@@ -1,0 +1,10 @@
+# Intel integrated graphics. Selected when `lspci -k` shows a VGA/3D device
+# whose kernel driver is in {i915, xe}.
+#
+# Why required: niri renders blur and the window animations through the Vulkan
+# renderer. Without a matching Vulkan ICD, blur silently disappears and the
+# compositor falls back to GL. libva-* additionally provides hardware video
+# decode/encode for the Noctalia screen recorder.
+vulkan-intel
+libva-intel-driver
+intel-media-driver

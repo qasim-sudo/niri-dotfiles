@@ -1,0 +1,19 @@
+# Noctalia plugins enabled by default.
+#
+# CLASSIFICATION RULE
+# A plugin is CORE only if a widget it provides is referenced by a bar group in
+# the shipped config.toml, or it backs a shipped keybinding. Anything else is
+# OPTIONAL (see plugins-optional.txt) and its package dependency is kept OUT of
+# packages/core.txt and packages/utilities.txt.
+
+# Plugin ID                        Real dependency        Why it is CORE
+noctalia/screen_recorder           ffmpeg*                the `recorder` widget sits in bar group g4
+noctalia/notes                     none                   the `notes` widget sits in bar group g4
+noctalia/wallhaven                 none                   the `wallhaven` widget sits in bar group g4;
+                                                          it backs the `Mod+W` wallpaper panel
+noctalia/timer                     none                   backs the `Mod+X` power/session panel
+noctalia/translator                none                   part of the launcher panel
+nightwatch75/todo                  none                   in-shell task widget (NOT the Todoist app)
+
+# * ffmpeg is in packages/utilities.txt because the recorder widget is on the
+#   live bar. It is not pulled in by any optional plugin.

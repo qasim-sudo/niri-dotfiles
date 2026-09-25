@@ -1,0 +1,25 @@
+layout {
+    background-color "transparent"
+
+    // 30px outer gaps, refined to 22px in appearance.kdl alongside the shadow
+    // and border blocks so all three live together.
+    gaps 30
+
+    // The focused column never jumps to the centre on a wide screen.
+    center-focused-column "never"
+
+    // Mod+R / Mod+Shift+R cycle through these.
+    preset-column-widths {
+        proportion 0.5
+        proportion 0.6
+        proportion 0.7
+        proportion 0.8
+        proportion 0.9
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.5; }
+
+    // Reserve space for the bar and any other layer-shell surface.
+    struts
+}

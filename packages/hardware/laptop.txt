@@ -1,0 +1,3 @@
+# Selected when the machine is detected as a laptop (DMI chassis_type is a
+# portable type, or /sys/class/power_supply contains a battery).
+fprintd

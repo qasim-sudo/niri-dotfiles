@@ -1,0 +1,32 @@
+// niri main configuration.
+//
+// This file is the only entry point; everything else is pulled in from cfg/.
+//
+// cfg/output.kdl holds monitor names, modes, scale and positions — all of
+// which describe the display plugged in right now. The repository ships a
+// comment-only placeholder (niri auto-detects with no output block); the
+// installer replaces it with the real thing, and ./regenerate.sh rebuilds it
+// after any monitor change.
+
+include "cfg/input.kdl"
+include "cfg/layout.kdl"
+include "cfg/appearance.kdl"
+include "cfg/animations.kdl"
+include "cfg/binds.kdl"
+include "cfg/environment.kdl"
+include "cfg/output.kdl"
+include "cfg/gestures.kdl"
+
+// Noctalia is the shell. It owns the bar, the panels, the launcher, the
+// clipboard, the wallpaper and the notification daemon, so it starts with the
+// compositor rather than as an autostart application.
+spawn-at-startup "noctalia"
+
+hotkey-overlay {
+    // Suppress the "Important Hotkeys" pop-up on login.
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+include "noctalia.kdl"

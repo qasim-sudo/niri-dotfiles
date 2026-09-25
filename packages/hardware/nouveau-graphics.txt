@@ -1,0 +1,7 @@
+# NVIDIA open-source driver (nouveau). Selected when `lspci -k` shows an NVIDIA
+# device still bound to the nouveau kernel module.
+#
+# Why required: see intel-graphics.txt — niri needs a Vulkan ICD for blur.
+# Mesa's nouveau driver is adequate for this desktop.
+vulkan-nouveau
+libva-mesa-driver

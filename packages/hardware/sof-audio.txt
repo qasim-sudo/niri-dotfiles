@@ -1,0 +1,7 @@
+# Selected when SOF audio hardware is present (`aplay -l` names
+# sof-*/snd_sof*, or a `*-platform-*` ALSA card backed by the SOF driver).
+# The Intel/AMD Smart Sound Open Firmware driver is what exposes the internal
+# microphone and speaker DSP on modern thin laptops; PipeWire cannot open the
+# codec without the matching firmware.
+sof-firmware
+alsa-firmware

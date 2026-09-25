@@ -1,0 +1,10 @@
+// Disable niri's pointer hot corners.
+//
+// Without a gestures block, niri enables the top-left hot corner by default,
+// which pops the Overview open every time the pointer reaches the corner.
+// Workspace switching here is keyboard-only (Mod+O for the Overview).
+gestures {
+    hot-corners {
+        off
+    }
+}

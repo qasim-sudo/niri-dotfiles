@@ -1,0 +1,46 @@
+# Local machine settings for the dotfiles installer.
+#
+# Copy this file to ~/.config/dotfiles/local.conf and edit it. That copy is
+# mode 600 and is gitignored: it never enters the repository, and it is the
+# only place machine-specific values or secrets belong.
+#
+# Nothing here is required. The installer has a working default for every
+# setting, and a fresh install needs none of them.
+#
+# The installer reads this file as plain shell AFTER its own defaults are set,
+# so anything you uncomment here wins. It is sourced, not parsed — keep it to
+# simple KEY=VALUE assignments.
+
+# ---------------------------------------------------------------------------
+# Where Noctalia keeps wallpapers.
+# Default: ~/Pictures/Wallpapers
+# WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+
+# ---------------------------------------------------------------------------
+# Extra assets deployed to disk, referenced from configs as @ASSETS@.
+# Default: ~/.local/share/dotfiles/assets
+# ASSETS_DIR="$HOME/.local/share/dotfiles/assets"
+
+# ---------------------------------------------------------------------------
+# The wallpaper the desktop starts with.
+# Default: wallhaven-w5xokr_1920x1080.png
+# Must exist in the repository's wallpapers/current/ directory.
+# DOTFILES_WALLPAPER="wallhaven-w5xokr_1920x1080.png"
+
+# ---------------------------------------------------------------------------
+# Weather widget credentials.
+#
+# The Noctalia `weather` widget is present in the shipped config but is on a
+# DISABLED bar group, so it is not visible out of the box. If you enable it
+# (add "weather" to a live capsule group in config/noctalia/config.toml), your
+# weather provider credentials go HERE, never in the tracked config.
+#
+# Read ~/.local/state/noctalia/weather.json after Noctalia has run once to see
+# which provider it selected, then set the matching key below.
+# WEATHER_API_KEY=""
+# WEATHER_PROVIDER=""
+
+# ---------------------------------------------------------------------------
+# Anything else you always want overridden on this machine, as plain
+# assignments. For example a package you always want present:
+# EXTRA_PACKAGES=(some-package)

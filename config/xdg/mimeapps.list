@@ -1,0 +1,52 @@
+# Reference mimeapps.list for Thunar.
+#
+# Installed to: ~/.config/mimeapps.list  — but ONLY with --force-mimeapps.
+#
+# The default install path does NOT use this file at all. It calls
+# `xdg-mime default thunar.desktop <type>` for the 15 file-manager types
+# listed below, which is the standard additive mechanism and preserves every
+# unrelated association you already have.
+#
+# Use --force-mimeapps only on a machine with no existing mimeapps.list, or
+# when you deliberately want this repository to own the whole file. The
+# installer asks for confirmation and backs the old file up first.
+#
+# Scope note: this file claims file-manager and archive types ONLY. No text/*,
+# image/*, audio/* or development type is touched, so an existing editor or
+# IDE association for source files survives either way.
+
+[Default Applications]
+inode/directory=thunar.desktop
+inode/directory/x-user-bookmark=thunar.desktop
+inode/directory/x-user-mount-directory=thunar.desktop
+inode/directory/x-user-trash=thunar.desktop
+x-scheme-handler/file=thunar.desktop
+x-scheme-handler/sftp=thunar.desktop
+application/zip=thunar.desktop
+application/x-tar=thunar.desktop
+application/gzip=thunar.desktop
+application/x-bzip2=thunar.desktop
+application/x-xz=thunar.desktop
+application/zstd=thunar.desktop
+application/x-7z-compressed=thunar.desktop
+application/x-rar=thunar.desktop
+application/vnd.rar=thunar.desktop
+application/x-iso9660-image=thunar.desktop
+
+[Added Associations]
+inode/directory=thunar.desktop;
+inode/directory/x-user-bookmark=thunar.desktop;
+inode/directory/x-user-mount-directory=thunar.desktop;
+inode/directory/x-user-trash=thunar.desktop;
+x-scheme-handler/file=thunar.desktop;
+x-scheme-handler/sftp=thunar.desktop;
+application/zip=thunar.desktop;
+application/x-tar=thunar.desktop;
+application/gzip=thunar.desktop;
+application/x-bzip2=thunar.desktop;
+application/x-xz=thunar.desktop;
+application/zstd=thunar.desktop;
+application/x-7z-compressed=thunar.desktop;
+application/x-rar=thunar.desktop;
+application/vnd.rar=thunar.desktop;
+application/x-iso9660-image=thunar.desktop;

@@ -1,0 +1,3 @@
+# Selected when /proc/cpuinfo reports a GenuineIntel CPU.
+# Without it, microcode fixes for errata and instability are not loaded.
+intel-ucode

@@ -1,0 +1,15 @@
+// Noctalia integration.
+// Reference: docs.noctalia.dev/noctalia/compositor-settings/niri/
+
+debug {
+    // Required for notification action buttons and window activation.
+    honor-xdg-activation-with-invalid-serial
+}
+
+// The Noctalia settings window is large; float it so it never tiles.
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}

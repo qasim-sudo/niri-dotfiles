@@ -1,0 +1,7 @@
+# AMD Radeon graphics. Selected when `lspci -k` shows a VGA/3D device whose
+# kernel driver is in {amdgpu}.
+#
+# Why required: see intel-graphics.txt — the Vulkan ICD drives niri's blur and
+# animation renderer. libva-mesa-driver provides VA-API for video decode.
+vulkan-radeon
+libva-mesa-driver

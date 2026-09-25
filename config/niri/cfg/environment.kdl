@@ -1,0 +1,10 @@
+environment {
+    // Qt apps follow the Wayland session and borrow GTK's theme, so the
+    // Noctalia-generated qt5ct/qt6ct colours and the adw-gtk3 theme match.
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "gtk3"
+
+    // Provided by bibata-cursor-theme-bin (packages/aur-required.txt).
+    XCURSOR_THEME "Bibata-Modern-Classic"
+    XCURSOR_SIZE "24"
+}

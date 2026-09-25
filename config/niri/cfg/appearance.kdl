@@ -1,0 +1,120 @@
+// Appearance: shadows, borders, blur, corner radius, layer rules.
+//
+// This file layers a second `layout { }` block on top of cfg/layout.kdl.
+// niri merges blocks, so the effective gaps are the last one that sets them.
+
+layout {
+    shadow {
+        on
+        softness 20
+        spread -3
+        offset x=6 y=6
+        color "#000000"
+    }
+
+    border {
+        off
+        width 1
+        active-color "#BFC1CD"
+        inactive-color "#000000"
+    }
+
+    focus-ring {
+        off
+        width 1
+        active-color "#000000"
+    }
+
+    gaps 22
+}
+
+// Draw window borders from the window's own background so a rounded corner is
+// not clipped by a square border.
+prefer-no-csd
+
+// Terminals are the one thing that must stay fully opaque and unblurred.
+window-rule {
+    match app-id=r"kitty"
+    opacity 1.0
+}
+
+// Everything else gets rounded, translucent, blurred corners.
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+    draw-border-with-background false
+    opacity 0.85
+    background-effect {
+        blur true
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Blur
+// ---------------------------------------------------------------------------
+// Requires a working Vulkan driver for your GPU (see packages/hardware/).
+// With no matching ICD, niri silently renders without blur.
+blur {
+    on
+    passes 2
+    offset 1
+    noise 0.0
+}
+
+// Let layers sit inside the blurred backdrop rather than over a flat one.
+layer-rule {
+    place-within-backdrop true
+}
+
+overview {
+    workspace-shadow {
+        off
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Per-layer blur tuning
+// ---------------------------------------------------------------------------
+// The clock capsule stays crisp: text on a blurred background is hard to read.
+layer-rule {
+    match namespace=r"noctalia-bar-clock_bar"
+    background-effect {
+        blur false
+        xray false
+    }
+}
+
+// The opacity-test bar is a flat bar, no blur.
+layer-rule {
+    match namespace=r"noctalia-bar-opacity"
+    background-effect {
+        blur false
+    }
+}
+
+// The main bar gets the full blur treatment.
+layer-rule {
+    match namespace=r"noctalia-bar-waybar"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+// A second bar, kept flat.
+layer-rule {
+    match namespace=r"noctalia-bar-bar"
+    background-effect {
+        blur false
+        xray false
+    }
+}
+
+// Everything else Noctalia draws: never see-through (no xray), blur inherited
+// from the backdrop where it helps.
+layer-rule {
+    match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+    background-effect {
+        xray false
+    }
+}

@@ -1,0 +1,20 @@
+input {
+    // Focus follows the pointer, but only when the pointer actually scrolls.
+    // A 0% threshold means "never auto-focus", which is what a tiling desktop
+    // wants: focus follows the keyboard, and the pointer only nudges the view.
+    focus-follows-mouse max-scroll-amount="0%"
+
+    keyboard {
+        xkb
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse
+
+    trackpoint
+}

@@ -1,0 +1,40 @@
+# packages/optional.txt — NOT installed by default.
+#
+# Enable with:  ./install.sh --with-extras
+#
+# Nothing here is required by the shipped desktop configuration. Each entry is
+# either an accessibility/convenience tool, a compat library, an extra font, or
+# the dependency of an OPTIONAL Noctalia plugin (see packages/plugins-optional).
+
+# --- Optional Noctalia plugin dependencies ---------------------------------
+hyprpicker          # noctalia plugin: oldirtty/color_picker
+imagemagick         # noctalia plugin: jinliu/imagemagick-clock
+smartmontools       # noctalia plugin: gustav0ar/drive-health  (smartctl)
+mpv                 # noctalia plugin: noctalia/mpvpaper        (also a media player)
+
+# --- Clipboard tooling ------------------------------------------------------
+# NOTE: Noctalia implements the Wayland clipboard protocol NATIVELY and keeps
+# its own encrypted history. It does not use cliphist. The installer therefore
+# keeps `cliphist.service` DISABLED (a second clipboard watcher fights Noctalia
+# for the Wayland selection) even when the package is installed.
+cliphist
+wl-clipboard
+
+# --- Audio extras -----------------------------------------------------------
+pwvucontrol
+libpulse
+pipewire-alsa
+pipewire-jack
+gst-libav
+gst-plugin-pipewire
+
+# --- Desktop extras ---------------------------------------------------------
+uwsm                # session/desktop selector and CLI app scoping; niri runs without it
+xdg-desktop-portal-gtk
+inter-font          # no shipped file references Inter; add font-name to the GTK
+                    # settings to activate it
+noto-fonts-cjk
+gnu-free-fonts
+bluez-utils
+pacman-contrib
+firewalld

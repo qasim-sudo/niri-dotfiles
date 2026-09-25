@@ -1,0 +1,11 @@
+# packages/aur-optional.txt — AUR, NOT installed by default.
+# Enable with:  ./install.sh --with-extras
+
+mpvpaper            # noctalia plugin: noctalia/mpvpaper (dynamic wallpaper)
+shelly              # noctalia plugin: joshuaslate/shelly (update notifier)
+ttf-space-grotesk
+otf-space-grotesk
+ttf-readex-pro
+ttf-rubik-vf
+ttf-twemoji
+ttf-material-symbols-variable-git

@@ -1,0 +1,10 @@
+# NVIDIA proprietary driver. NOT selected automatically.
+# Enable with:  ./install.sh --nvidia
+#
+# Why required: see intel-graphics.txt. Note that the NVIDIA driver is closed
+# source and is therefore an explicit, opt-in decision. nvidia-dkms rebuilds the
+# module against the running kernel, which is why `linux-headers` (pulled in by
+# dkms) must be present.
+nvidia-dkms
+nvidia-utils
+libva-utils

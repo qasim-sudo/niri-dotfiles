@@ -1,0 +1,3 @@
+# Selected when /proc/cpuinfo reports an AuthenticAMD CPU.
+# Without it, microcode fixes for errata and instability are not loaded.
+amd-ucode
